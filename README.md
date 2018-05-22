@@ -36,6 +36,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ***1. Provide an example of a distortion-corrected image.***
 I prepared a wrapper function around the `cv2.undistort()` so that I didn't have to send all the parameters for every image, now it can be called like `undistort(img)` and the result is something like the image below
+
 ![alt text][image2]
 
 ***2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image. Provide an example of a binary image result.***
@@ -47,6 +48,7 @@ In the cell #6 I test the values and visualize the result from the different gra
 For the color threshold I apply a mask on the R channel of the RGB image and another mask on the L channel of the HLS image, then I combine them to get a final color mask, this is tested in cell #7
 
 Here you can see the different masks and the final result.
+
 ![alt text][image3]
 
 ***3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.***
@@ -77,9 +79,11 @@ Then the code keeps adding windows and looking for points, if more than 50 point
 After all points have been identified a polynomial line its fitted across this points to get each of the lines.
 
 This process can be visualized in the following image
+
 ![alt text][image5]
 
 If the previous line was detected the process is much simpler and now the code only looks for points that are near the previous line fit.
+
 ![alt text][image6]
 
 ***5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.***
@@ -97,6 +101,7 @@ In cell #14 I define the function `draw_lane()` where I draw the lane along with
 ![alt text][image7]
 
 Then in the main pipeline this gets unwarped and added to the original image
+
 ![alt text][image8]
 
 ***7. Sanity Check.***
